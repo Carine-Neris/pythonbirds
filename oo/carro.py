@@ -46,14 +46,31 @@ class Carro():
       self.direcao = direcao
       self.motor = motor
 
-   def calcular_velocidade(self, motor):
-      return motor.velocidade
+   def calcular_velocidade(self):
+      return self.motor.velocidade
+
+   def acelerar(self):
+      return self.motor.acelerar()
+
+   def frear(self):
+      return self.motor.frear()
+
+   def calcular_direcao(self):
+      return self.direcao.valor
+
+   def girar_a_direita(self):
+      return self.direcao.girar_a_direita()
+
+   def girar_a_esquerda(self):
+      return self.direcao.girar_a_esquerda()
 
 
 if __name__ == "__main__":
    motor = Motor()
    direcao = Direcao()
    carro = Carro(direcao, motor)
-   print(carro.calcular_velocidade(motor))
+   print(carro.calcular_velocidade())
    carro.acelerar()
-   print(carro.calcular_velocidade(motor))
+   print(carro.calcular_velocidade())
+   carro.girar_a_esquerda()
+   print(carro.calcular_direcao())
