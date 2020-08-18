@@ -11,22 +11,25 @@ class Motor():
       self.velocidade = max(0,self.velocidade)
       return self.velocidade
 
+NORTE = "Norte"
+LESTE = "Leste"
+SUL = "Sul"
+OESTE = "Oeste"
 
 class Direcao():
    def __init__(self):
       self.valor = "Norte"
 
+   #Usando Dict
    def girar_a_direita(self):
-      if self.valor == "Norte":
-         self.valor = "Leste"
-      elif self.valor == "Leste":
-         self.valor = "Sul"
-      elif self.valor == "Sul":
-         self.valor = "Oeste"
-      else:
-         self.valor = "Norte"
+      direcao_direita_dict = {
+         "Norte":LESTE , "Leste":SUL, "Sul":OESTE, "Oeste":NORTE
+      }
+
+      self.valor = direcao_direita_dict[self.valor]
       return self.valor   
 
+   #Usando estrutura de Decisão
    def girar_a_esquerda(self):
       if self.valor == "Norte":
          self.valor = "Oeste"
@@ -72,5 +75,11 @@ if __name__ == "__main__":
    print(carro.calcular_velocidade())
    carro.acelerar()
    print(carro.calcular_velocidade())
-   carro.girar_a_esquerda()
+   carro.girar_a_direita()
+   print(carro.calcular_direcao())
+   carro.girar_a_direita()
+   print(carro.calcular_direcao())
+   carro.girar_a_direita()
+   print(carro.calcular_direcao())
+   carro.girar_a_direita()
    print(carro.calcular_direcao())
