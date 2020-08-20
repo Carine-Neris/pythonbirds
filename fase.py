@@ -43,7 +43,6 @@ class Fase():
 
         :param obstaculos:
         """
-
         self._obstaculos.extend(obstaculos)
 
     def adicionar_porco(self, *porcos):

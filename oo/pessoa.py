@@ -26,8 +26,11 @@ class Pessoa:
         return f' {cls} - olhos {cls.olhos}'
 
 
+class Homem(Pessoa):
+    pass
+
 if __name__ == '__main__':
-    p = Pessoa(nome='Carine',idade=29)
+    p = Homem(nome='Carine',idade=29)
     c = Pessoa(p,nome="Barbara",idade=28)
     print(p.comprimentar())
     print(Pessoa.comprimentar(p))
@@ -41,3 +44,8 @@ if __name__ == '__main__':
 
     print(Pessoa.metodo_estatico())
     print(Pessoa.nome_e_atributos_de_classe())
+
+
+    #Metodo para saber se um objeto é instancia da classe
+    print(isinstance(p,Pessoa))
+    print(isinstance(c,Homem))
